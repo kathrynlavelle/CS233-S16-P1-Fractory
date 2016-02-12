@@ -8,9 +8,21 @@ package edu.kings.cs233.fractal;
  * @version 2016-02-11
  *
  */
-public class InvalidValueException extends Exception {
+public class InvalidValueException extends RuntimeException {
 
 	/** Generated unique id. */
 	private static final long serialVersionUID = -3297572599244439404L;
-
+	
+	/**
+	 * Instantiates a new InvalidValueException with no parameters.
+	 */
+	public InvalidValueException() {}
+	
+	/**
+	 * Instantiates a new InvalidValueException with a message.
+	 * @param message The message.
+	 */
+	public InvalidValueException(String message) {
+		super(message);
+	}
 }
