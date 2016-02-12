@@ -4,8 +4,6 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import edu.kings.cs233.fractal.ImageFile;
-
 /**
  * This class controls the generation of fractal images by displaying a menu and prompting the user for
  * the necessary arguments for a specific fractal set.
@@ -49,7 +47,7 @@ public class Main {
 					break;
 				case 2:
 					getFractalDetails();
-					ImageFile multibrotImage = new ImageFile(800, 800, numColors);
+					ImageFile multibrotImage = new ImageFile(512, 512, numColors);
 					multibrotImage.generatePixelData(new MultibrotGenerator(), xStart, xEnd, yStart, yEnd);
 					if (multibrotImage.saveImage("multibrot")) {
 						System.out.println("Image saved!");
@@ -130,6 +128,9 @@ public class Main {
 		return quitScanner.nextLine();
 	}
 	
+	/**
+	 * Prompts user for the values needed to create a fractal image.
+	 */
 	private static void getFractalDetails() {
 		detailScanner = new Scanner(System.in);
 		System.out.print("Start x: ");
@@ -142,6 +143,7 @@ public class Main {
 		yEnd = detailScanner.nextDouble();
 		System.out.print("Number of colors (max = 255): ");
 		numColors = detailScanner.nextInt();
+		
 		if (numColors > 255) {
 			System.out.println("Invalid color amount. The maximum number of colors is 255. Please Try again.");
 			System.out.print("Number of colors: ");

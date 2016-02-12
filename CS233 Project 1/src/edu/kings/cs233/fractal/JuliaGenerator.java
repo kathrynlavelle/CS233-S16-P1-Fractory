@@ -2,9 +2,6 @@ package edu.kings.cs233.fractal;
 
 import java.util.Scanner;
 
-import edu.kings.cs233.fractal.ImageGeneratorFactory;
-import edu.kings.cs233.fractal.PixelComputer;
-
 /**
  * Instantiates an object to generate a Julia Set fractal image.
  * 

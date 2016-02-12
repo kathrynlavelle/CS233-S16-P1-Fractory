@@ -1,25 +1,30 @@
 package edu.kings.cs233.fractal;
 
-import edu.kings.cs233.fractal.PixelComputer;
-
 /**
+ * This class calculates the number of steps before a pixel value is out of range. The calculation is specific to the
+ * Julia Set Fractal.
  * 
  * @author Kathryn Lavelle
  * @version 2016-02-11
  */
 public class JuliaPC implements PixelComputer {
 	/** The maximum number of colors. */
-	private int maxIterations;
+	private int maxNumColors;
 	/** The constant values for the Julia update. */
 	private double constValue1, constValue2;
+	/** The number of steps before a pixel "escapes". */
+	private int result;
+	
 	/**
 	 * The constructor method for a new MandelbrotPC.
 	 * @param maxIterations The maximum number of iterations.
+	 * @param constVal1 The first value that remains constant across all pixels.
+	 * @param constVal2 The second value that remains constant across all pixels.
 	 */
-	public JuliaPC(int maxIterations, double constValue1, double constValue2) {
-		maxIterations = this.maxIterations;
-		constValue1 = this.constValue1;
-		constValue2 = this.constValue2;
+	public JuliaPC(int maxIterations, double constVal1, double constVal2) {
+		maxNumColors = maxIterations;
+		constValue1 = constVal1;
+		constValue2 = constVal2;
 	}
 
 	/**
@@ -33,14 +38,15 @@ public class JuliaPC implements PixelComputer {
 	 */
 	@Override
 	public int calculateSteps(double x, double y, double x0, double y0, int iterations) {
-		if ((Math.sqrt((x*x) + (y*y)) > 4) || iterations >= maxIterations) {
-			return iterations;
+		if ((Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) > 4) || iterations >= maxNumColors) {
+			result = iterations;
 		}
 		else {
 			double nextX = constValue1 + Math.pow(x, 2) - Math.pow(y, 2);
 			double nextY = constValue2 + 2 * x * y;
 			int nextIterations = iterations + 1;
-			return calculateSteps(nextX, nextY, x0, y0, nextIterations);
+			result = calculateSteps(nextX, nextY, x0, y0, nextIterations);
 		}
+		return result;
 	}
 }
