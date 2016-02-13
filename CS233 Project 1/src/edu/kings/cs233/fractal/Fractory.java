@@ -51,7 +51,7 @@ public class Fractory {
 					multibrotImage.generatePixelData(new MultibrotGenerator(), xStart, xEnd, yStart, yEnd);
 					if (multibrotImage.saveImage("multibrot")) {
 						System.out.println("Image saved!");
-					}
+					} 
 					break;
 				case 3:
 					getFractalDetails();
@@ -144,8 +144,8 @@ public class Fractory {
 		System.out.print("Number of colors (max = 255): ");
 		numColors = detailScanner.nextInt();
 		
-		if (numColors > 255) {
-			System.out.println("Invalid color amount. The maximum number of colors is 255. Please Try again.");
+		if (numColors > 255 || numColors <= 0) {
+			System.out.println("Invalid color amount: there must be between 1-255 colors. Please try again.");
 			System.out.print("Number of colors: ");
 			numColors = detailScanner.nextInt();
 		}
