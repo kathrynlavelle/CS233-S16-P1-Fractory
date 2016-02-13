@@ -19,7 +19,7 @@ public class MandelbrotPC implements PixelComputer {
 	 */
 	public MandelbrotPC(int maxIterations) {
 		maxNumColors = maxIterations;
-	}
+	} 
 
 	/**
 	 * Calculates the number of steps before a pixel "escapes".
