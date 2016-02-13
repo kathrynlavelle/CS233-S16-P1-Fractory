@@ -36,11 +36,10 @@ public class MultibrotPC implements PixelComputer {
 			result = iterations;
 		}
 		else {
-			double nextX = x0 + Math.pow(x, 3) - 3 * x * Math.pow(y, 2);
-			double nextY = y0 + 3 * Math.pow(x, 2) * y - Math.pow(y, 3);
+			double nextX = x0 + Math.pow(x, 3) - (3 * x * Math.pow(y, 2));
+			double nextY = y0 + (3 * Math.pow(x, 2) * y )- Math.pow(y, 3);
 			int nextIterations = iterations + 1;
-			calculateSteps(nextX, nextY, x0, y0, nextIterations);
-			result =  iterations;
+			result = calculateSteps(nextX, nextY, x0, y0, nextIterations);
 		}
 		return result;
 	}

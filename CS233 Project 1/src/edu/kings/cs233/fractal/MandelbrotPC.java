@@ -30,7 +30,7 @@ public class MandelbrotPC implements PixelComputer {
 	 * @param iterations The current iteration.
 	 * @return The number of steps before a pixel "escapes".
 	 */
-	
+	@Override
 	public int calculateSteps(double x, double y, double x0, double y0, int iterations) {
 		if ((Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)) > 4) || iterations >= maxNumColors) {
 			result = iterations;
