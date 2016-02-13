@@ -2,16 +2,20 @@ package edu.kings.cs233.fractal;
 
 //import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Beginning of test cases for the MandelbrotPC class.
+ * @author Kathryn Lavelle
+ * @version 2016-02-13
+ */
 public class MandelbrotPCTest {
 
-	@Before
-	public void setUp() throws Exception {
-		
-	} 
-
+	/**
+	 * Tests the number of steps returned by the calculateSteps() method.
+	 * @throws InvalidValueException
+	 * @throws InvalidGeneratorException
+	 */
 	@Test
 	public void testCalculateSteps() throws InvalidValueException, InvalidGeneratorException {
 		ImageGeneratorFactory igf = new MandelbrotGenerator();
@@ -19,5 +23,4 @@ public class MandelbrotPCTest {
 		ImageFile image = new ImageFile(); 
 		image.generatePixelData(igf, -2.14, 0.5, -1.2, 1.2);
 	}
-
 }

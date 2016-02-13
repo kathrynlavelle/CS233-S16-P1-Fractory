@@ -16,7 +16,7 @@ public class JuliaPC implements PixelComputer {
 	private int result;
 	
 	/**
-	 * The constructor method for a new MandelbrotPC.
+	 * The constructor method for a new JuliaPC.
 	 * @param maxIterations The maximum number of iterations.
 	 * @param constVal1 The first value that remains constant across all pixels.
 	 * @param constVal2 The second value that remains constant across all pixels.
@@ -26,7 +26,7 @@ public class JuliaPC implements PixelComputer {
 		constValue1 = constVal1;
 		constValue2 = constVal2;
 	}
-
+ 
 	/**
 	 * Calculates the number of steps before a pixel "escapes".
 	 * @param x The current value of x.
